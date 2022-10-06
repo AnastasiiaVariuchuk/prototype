@@ -1,15 +1,14 @@
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Test {
+public class Parser {
 
-    private final static Logger logger = LogManager.getLogger(Test.class);
+    private final static Logger logger = LogManager.getLogger(Parser.class);
     public static void getTest() {
         Document doc;
 
