@@ -1,5 +1,6 @@
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
@@ -14,7 +15,7 @@ public class Parser {
 
         {
             try {
-                doc = Jsoup.connect("https://www.wikipedia.org/")
+                doc = Jsoup.connect("https://milkbar.com.ua/shota")
                         .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 Edg/106.0.1370.34")
                         .referrer("http://www.google.com")
                         .get();
@@ -24,7 +25,12 @@ public class Parser {
         }
 
         Elements listNews = doc.select("a");
-        logger.info(listNews);
+        logger.info(listNews.attr("href", "https://www.instagram.com/milkbarkyiv/"));
+        //logger.info(listNews);
+        /*for(Element element:listNews) {
+            String linkHref = listNews.attr("href");
+            logger.info(linkHref);
+        }*/
 
         /*for (Element element : listNews.select("a"))
             System.out.println(element.text());*/
