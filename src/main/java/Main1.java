@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main1 {
-    public static void main(String[] args) throws InterruptedException, IOException, SQLException {
+    public static Matrix getMyMatrix() {
         //Parser.getTest();
 
         Node node1 = new Node(1, "NODE1");
@@ -50,11 +50,10 @@ public class Main1 {
         nodeAndLinkList.add(nodeAndLink7);
 
         INL.nodeAndLinkList.addAll(nodeAndLinkList);
-        //NodeAndLink nodeAndLink = new NodeAndLink(0, nodeAndLink1.getNode(), nodeAndLink1.getLink());
-        //System.out.println(INL.find(nodeAndLink));
 
         Matrix matrix = new Matrix();
         matrix = matrix.matrixFilling(nodes);
         matrix.print();
+        return matrix;
     }
 }
