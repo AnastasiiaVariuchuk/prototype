@@ -1,23 +1,27 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
+
 
 public class INL {
-    public static List<NodeAndLink> nodeAndLinkList = new ArrayList<>();//з ьази дістати всі пари
-    public static List<Node> nodes = new ArrayList<>();
-    public static List<Link> links = new ArrayList<>();
+    public static List<NodeAndLink> nodeAndLinkList = new ArrayList<>();//з бази дістати всі пари
 
-    public static void add() {
-        for (NodeAndLink nodeAndLink : nodeAndLinkList) {
-            nodes.add(nodeAndLink.getNode());
-            links.add(nodeAndLink.getLink());
+    /*public static NodeAndLink find(NodeAndLink nodeAndLink) {
+        for (NodeAndLink nodeAndLink1 : nodeAndLinkList) {
+            if (nodeAndLink1.getNode().equals(nodeAndLink.getNode())) {
+                if (nodeAndLink1.getLink().equals(nodeAndLink.getLink())) {
+                    return nodeAndLink1;
+                }
+            }
         }
-    }
+        return null;
+    }*/
 
-    public static boolean isContains(String node, String link) {
-        if (nodes.contains(node) && links.contains(link)) {
-            return true;
-        }
-        return false;
+   public static NodeAndLink find(NodeAndLink nodeAndLink) {
+        NodeAndLink nodeAndLink1 = nodeAndLinkList.stream()
+                .filter(e1 -> e1.getNode().equals(nodeAndLink.getNode()) && e1.getLink().equals(nodeAndLink.getLink()))
+                .findAny().orElse(null);
+        return nodeAndLink1;
     }
-
 }

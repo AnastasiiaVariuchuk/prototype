@@ -29,6 +29,11 @@ public class Node {
         this.node = node;
     }
 
+    public Link nodeToLink() {
+        Link link = new Link(id, node);
+        return link;
+    }
+
     @Override
     public String toString() {
         return "Node{" +
