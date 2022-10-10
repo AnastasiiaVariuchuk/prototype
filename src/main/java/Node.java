@@ -1,39 +1,53 @@
 import java.util.List;
+import java.util.Objects;
 
 public class Node {
-    private int linksToOthers;
-    private int linksToMyself;
+    private int id;
+    private String node;
+
+    public Node(int id, String node) {
+        this.id = id;
+        this.node = node;
+    }
 
     public Node() {
     }
 
-    public Node(int linksToOthers, int linksToMyself) {
-        this.linksToOthers = linksToOthers;
-        this.linksToMyself = linksToMyself;
+    public int getId() {
+        return id;
     }
 
-    public int getLinksToOthers() {
-        return linksToOthers;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setLinksToOthers(int linksToOthers) {
-        this.linksToOthers = linksToOthers;
+    public String getNode() {
+        return node;
     }
 
-    public int getLinksToMyself() {
-        return linksToMyself;
-    }
-
-    public void setLinksToMyself(int linksToMyself) {
-        this.linksToMyself = linksToMyself;
+    public void setNode(String node) {
+        this.node = node;
     }
 
     @Override
     public String toString() {
         return "Node{" +
-                "linksToOthers=" + linksToOthers +
-                ", linksToMyself=" + linksToMyself +
+                "id=" + id +
+                ", node='" + node + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Node node1 = (Node) o;
+        return id == node1.id && Objects.equals(node, node1.node);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, node);
     }
 
     public static Node[] getOneDimArray(List<Node> nodeList) {
