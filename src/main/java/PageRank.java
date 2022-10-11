@@ -41,7 +41,7 @@ public class PageRank {
                 System.out.println(this.path[InternalNodeNumber][0] + ""+  this.path[InternalNodeNumber][1] + ""
                 +this.path[InternalNodeNumber][2] +""+ this.path[InternalNodeNumber][3] + ""+  this.path[InternalNodeNumber][4]);
                 for (ExternalNodeNumber = 0; ExternalNodeNumber < totalNodes; ExternalNodeNumber++) {
-                    if (this.path[InternalNodeNumber][ExternalNodeNumber] == 1) {
+                    if (this.path[ExternalNodeNumber][InternalNodeNumber] == 1) {
                         k = 0;
                         OutgoingLinks = 0; // Count the Number of Outgoing Links for each ExternalNodeNumber
                         while (k < totalNodes) {
@@ -50,7 +50,7 @@ public class PageRank {
                             }
                             k = k + 1;
                         }
-                        System.out.println("L "+ OutgoingLinks);
+                        //System.out.println("L "+ OutgoingLinks);
                         // Calculate PageRank
                         this.pagerank[InternalNodeNumber] += TempPageRank[ExternalNodeNumber] * (1 / OutgoingLinks);
                     }
